@@ -15,7 +15,7 @@ def check(datasets):
             res = requests.get('https://github.com/{0}/'.format(username))
             if (res.status_code != 404):
                 res = requests.get('https://github.com/{0}/{1}/'.format(username,repo))
-                if (res == 404):
+                if (res.status.code == 404):
                     print ('{0} {1} {2} 這個渾蛋的repo不存在啊?!'.format(team,num,name))
             else:
                 print ('{0} {1} {2} 這個渾蛋的username是錯的!'.format(team,num,name))
